@@ -2,6 +2,7 @@ package com.mygdx.bird;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,12 +21,17 @@ public class Bird extends Game {
 	public void create() {
 		manager = new AssetManager();
 		manager.load("bird.png", Texture.class);
+		manager.load("redbull.png", Texture.class);
+		manager.load("pastilla.png", Texture.class);
+		manager.load("peanut_butter.png", Texture.class);
 		manager.load("pipe_up.png", Texture.class);
 		manager.load("pipe_down.png", Texture.class);
 		manager.load("background.png", Texture.class);
+		manager.load("backgroundmusic.wav", Sound.class);
 		manager.load("flap.wav", Sound.class);
 		manager.load("fail.wav", Sound.class);
 		manager.finishLoading();
+
 
 		batch = new SpriteBatch();
 		// Create bitmap fonts from TrueType font

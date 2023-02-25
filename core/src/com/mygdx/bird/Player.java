@@ -9,13 +9,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class Player extends Actor {
     Rectangle bounds;
     AssetManager manager;
-    float speedy, gravity;
+    float speedy, speedx, gravity;
+    private float x, y;
+    private float width, height;
+    boolean drunk;
+    boolean pilled;
+
     Player() {
         setX(200);
         setY(280 / 2 - 64 / 2);
         setSize(64,45);
         bounds = new Rectangle();
         speedy = 0;
+        speedx = 500f;
         gravity = 850f;
     }
     @Override
@@ -38,10 +44,46 @@ public class Player extends Actor {
         speedy = 400f;
     }
 
+    void velocidadX(){
+        speedx = 50f;
+    }
+
     public Rectangle getBounds() {
         return bounds;
     }
     public void setManager(AssetManager manager) {
         this.manager = manager;
+    }
+
+    public boolean isDrunk() {
+        return drunk;
+    }
+
+    public void setDrunk(boolean drunk) {
+        this.drunk = drunk;
+    }
+
+    public boolean isPilled() {
+        return pilled;
+    }
+
+    public void setPilled(boolean pilled) {
+        this.pilled = pilled;
+    }
+
+    public float getSpeedy() {
+        return speedy;
+    }
+
+    public void setSpeedy(float speedy) {
+        this.speedy = speedy;
+    }
+
+    public float getSpeedx() {
+        return speedx;
+    }
+
+    public void setSpeedx(float speedx) {
+        this.speedx = speedx;
     }
 }

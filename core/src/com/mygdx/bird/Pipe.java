@@ -10,10 +10,13 @@ public class Pipe extends Actor {
     Rectangle bounds;
     boolean upsideDown;
     AssetManager manager;
+    int speed;
+
     Pipe() {
         setSize(64, 230);
         bounds = new Rectangle();
         setVisible(false);
+        defaultSpeed();
     }
 
     @Override
@@ -42,5 +45,17 @@ public class Pipe extends Actor {
     }
     public void setManager(AssetManager manager) {
         this.manager = manager;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void defaultSpeed(){
+        this.speed = -200;
     }
 }
