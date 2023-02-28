@@ -44,7 +44,7 @@ public class GameScreen implements Screen {
     int redBullBoom = 25;
 
     Array<PeanutButterJelly> peanutButters;
-    Sound musicaFondo;
+    Music justBurningMemory = Gdx.audio.newMusic(Gdx.files.internal("music_background.mp3"));
 
     public GameScreen(final Bird gam) {
         this.game = gam;
@@ -67,7 +67,7 @@ public class GameScreen implements Screen {
         lastRedbull = 0;
         lastPill = 0;
         redBullTouch = false;
-
+        justBurningMemory.play();
     }
 
     @Override
