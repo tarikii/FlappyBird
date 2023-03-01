@@ -44,7 +44,7 @@ public class GameScreen implements Screen {
     int redBullBoom = 25;
 
     Array<PeanutButterJelly> peanutButters;
-    Music justBurningMemory = Gdx.audio.newMusic(Gdx.files.internal("music_background.mp3"));
+    Music justBurningMemory;
 
     public GameScreen(final Bird gam) {
         this.game = gam;
@@ -67,7 +67,10 @@ public class GameScreen implements Screen {
         lastRedbull = 0;
         lastPill = 0;
         redBullTouch = false;
-        justBurningMemory.play();
+        justBurningMemory = Gdx.audio.newMusic(Gdx.files.internal("music_background.mp3"));
+        if (!justBurningMemory.isPlaying()) {
+            justBurningMemory.play();
+        }
     }
 
     @Override
@@ -90,7 +93,7 @@ public class GameScreen implements Screen {
         // process user input
         if (Gdx.input.justTouched()) {
             Random random = new Random();
-            if(random.nextFloat() >= 0.8f){
+            if(random.nextFloat() >= 0.85f){
                 shoot();
             }
             player.impulso();
@@ -99,7 +102,6 @@ public class GameScreen implements Screen {
         }
         stage.act();
         // Comprova que el jugador no es surt de la pantalla.
-        game.manager.get("backgroundmusic.wav", Sound.class).play();
         // Si surt per la part inferior, game over
         if (player.getBounds().y > 480 - 45){
             player.setY( 480 - 45 );
@@ -114,7 +116,7 @@ public class GameScreen implements Screen {
             lastRedbull = 0;
         }
 
-        if (TimeUtils.nanoTime() - lastObstacleTime >= 750000000 && lastPill == 7) {
+        if (TimeUtils.nanoTime() - lastObstacleTime >= 750000000 && lastPill == 5) {
             spawnLorazepam();
             lorazepamTouch = true;
             lastPill = 0;
@@ -312,5 +314,8 @@ public class GameScreen implements Screen {
     }
     @Override
     public void dispose() {
+
+        justBurningMemory.stop();
+        justBurningMemory.dispose();
     }
 }

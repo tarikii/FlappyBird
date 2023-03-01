@@ -30,7 +30,7 @@ public class PeanutButterJelly extends Actor {
         bounds.set(getX(), getY(), getWidth(), getHeight());
 
         // Actualiza la posición vertical
-        float newY = initialY + 251 * MathUtils.sinDeg(360 * (TimeUtils.nanoTime() - startTime) / 1000000000f);
+        float newY = initialY + 190 * MathUtils.sinDeg(360 * (TimeUtils.nanoTime() - startTime) / 1000000000f);
         if (newY < 0) { // Si la nueva posición está debajo del límite inferior
             newY = 0; // Mueve el objeto hasta el límite inferior
         } else if (newY > Gdx.graphics.getHeight() - getHeight()) { // Si la nueva posición está sobre el límite superior
