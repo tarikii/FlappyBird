@@ -93,7 +93,7 @@ public class GameScreen implements Screen {
         // process user input
         if (Gdx.input.justTouched()) {
             Random random = new Random();
-            if(random.nextFloat() >= 0.85f){
+            if(random.nextFloat() >= 0.75f){
                 shoot();
             }
             player.impulso();
